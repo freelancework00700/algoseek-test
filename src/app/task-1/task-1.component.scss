@@ -103,7 +103,7 @@ textarea:focus-visible {
   background: var(--color-6);
 }
 
-.note-item-form-control{
+.note-item-form-control {
   gap: 0 !important;
   padding: 0 !important;
   display: block !important;
@@ -169,7 +169,6 @@ textarea:focus-visible {
   transform: translateY(-50%);
 }
 
-
 /* delete button container */
 .delete-container {
   top: 1rem;
@@ -204,13 +203,59 @@ textarea:focus-visible {
   background-color: var(--theme-2);
 }
 
+/* modal box container */
+.modal-box {
+  width: 100%;
+  padding: 24px;
+  max-width: 400px;
+  border-radius: 8px;
+  position: relative;
+  text-align: center;
+  color: var(--color-1);
+  font-family: 'Helvetica';
+  background-color: var(--color-7);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* spacing between elements */
+.py-4 {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+/* buttons styling */
+.btn {
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  display: inline-block;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* error button style */
+.btn-error {
+  color: var(--color-7);
+  background-color: var(--theme-2);
+}
+
+.dialog-btn-div {
+  display: flex;
+  justify-content: space-between;
+}
+
 /* responsive design for smaller screens */
 @media (max-width: 600px) {
-  .icon-button-div{
+  .icon-button-div {
     display: block;
   }
 
-  .submit-button-div{
+  .submit-button-div {
     display: flex;
     margin-top: 1rem;
     justify-content: flex-end;

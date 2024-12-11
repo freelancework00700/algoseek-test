@@ -23,8 +23,10 @@
               @for (type of noteTypes; track $index) {
                 <button
                   type="button"
-                  class="icon-button"
+                  placement="bottom"
+                  [ngxTooltip]="type"
                   (click)="selectNoteType(type)"
+                  class="icon-button tooltip-fancy-bottom"
                   [class.active]="noteForm.get('type')?.value === type"
                 >
                   <i [ngClass]="getIconClass(type)"></i>
@@ -43,9 +45,9 @@
     @for (note of notes; track $index) {
       <div class="note-item">
         <!-- left side icon -->
-        <div class="timeline-time">{{ note.timestamp | relativeTime}}</div>
+        <div class="timeline-time">{{ note.timestamp | relativeTime }}</div>
 
-        <div class="timeline-icon">
+        <div class="timeline-icon" [ngxTooltip]="note.type" placement="bottom">
           <i [ngClass]="getIconClass(note.type)"></i>
         </div>
 
@@ -60,9 +62,25 @@
         </div>
 
         <div class="delete-container">
-          <button class="delete-button" (click)="deleteNote($index)">
-            <i class="fa fa-trash"></i>
-          </button>
+          <ngx-dialog>
+            <button class="delete-button" ngx-dialog-trigger ngxTooltip="Delete" placement="bottom">
+              <i class="fa fa-trash"></i>
+            </button>
+
+            <ng-template ngx-dialog-template>
+              <div class="modal-box">
+                <h2 class="text-2xl">Are you sure?</h2>
+                <div class="py-4"></div>
+
+                <div class="dialog-btn-div">
+                  <button class="btn" ngx-dialog-close>Close</button>
+                  <button class="btn btn-sm btn-error ml-auto" ngx-dialog-close (click)="deleteNote($index)">
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </ng-template>
+          </ngx-dialog>
         </div>
       </div>
     }
