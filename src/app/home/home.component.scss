@@ -1,0 +1,47 @@
+/* container styling */
+.container {
+  height: 100%;
+  display: flex;
+  padding: 2rem;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--color-6);
+}
+
+/* button group styling */
+.button-group {
+  gap: 1rem;
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+/* navigation button styling */
+.nav-button {
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  color: var(--color-7);
+  padding: 0.75rem 1.5rem;
+  background-color: var(--theme-1);
+  transition: background-color 0.3s;
+}
+
+/* hover effect for buttons */
+.nav-button:hover {
+  background-color: var(--theme-1);
+}
+
+/* responsive design for smaller screens */
+@media (max-width: 600px) {
+  .button-group {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .nav-button {
+    width: 100%;
+    text-align: center;
+  }
+}

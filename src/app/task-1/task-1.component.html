@@ -1,0 +1,70 @@
+<div class="timeline-container">
+  <div class="note-list">
+    <div class="note-item note-item-form-control">
+      <!-- activity form icon -->
+      <div class="timeline-icon">
+        <i class="fa-solid fa-list"></i>
+      </div>
+
+      <!-- add new activity form -->
+      <form [formGroup]="noteForm" (ngSubmit)="onSubmit()">
+        <div class="note-input">
+          <!-- content -->
+          <textarea formControlName="content" placeholder="Add a note about {{ userName }}..."></textarea>
+
+          <!-- error message for content field -->
+          @if (noteForm.get('content')?.errors && formSubmitted) {
+            <div class="error-message">* Note content is required.</div>
+          }
+
+          <div class="icon-button-div">
+            <!-- activity type -->
+            <div class="icon-buttons">
+              @for (type of noteTypes; track $index) {
+                <button
+                  type="button"
+                  class="icon-button"
+                  (click)="selectNoteType(type)"
+                  [class.active]="noteForm.get('type')?.value === type"
+                >
+                  <i [ngClass]="getIconClass(type)"></i>
+                </button>
+              }
+            </div>
+
+            <!-- submit button -->
+            <div class="submit-button-div"><button class="submit-button" type="submit">Submit</button></div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- display activities -->
+    @for (note of notes; track $index) {
+      <div class="note-item">
+        <!-- left side icon -->
+        <div class="timeline-time">{{ note.timestamp | relativeTime}}</div>
+
+        <div class="timeline-icon">
+          <i [ngClass]="getIconClass(note.type)"></i>
+        </div>
+
+        <!-- activity content -->
+        <div class="note-content">
+          <p>
+            <strong>You</strong> had a {{ note.type }} with
+            <strong>{{ note.user }}</strong>
+          </p>
+
+          <p class="note-details">{{ note.content }}</p>
+        </div>
+
+        <div class="delete-container">
+          <button class="delete-button" (click)="deleteNote($index)">
+            <i class="fa fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    }
+  </div>
+</div>
