@@ -49,6 +49,7 @@ textarea:focus-visible {
   padding: 0.5rem;
   border-radius: 50%;
   background-color: var(--color-7);
+  min-width: 40px;
 }
 .icon-button.active {
   background-color: var(--theme-1);
