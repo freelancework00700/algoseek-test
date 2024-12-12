@@ -1,3 +1,5 @@
+@use 'swiper/css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -62,7 +64,7 @@ body {
   }
 }
 .bg-shape{
-	background-image: url("../src/assets/fundo.png");
+	background-image: url("./assets/images/fundo.png");
 	height: 1040px;
 	@media screen and (max-width: 1023px) {
 		height: 720px;
@@ -72,7 +74,7 @@ body {
 	}
 }
 .hero-img{
-	background-image: url("../src/assets/hero-image.png");
+	background-image: url("./assets/images/hero-image.png");
 	height: 640px;
     object-fit: contain;
     width: 100%;
